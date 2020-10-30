@@ -56,16 +56,20 @@ public class Grille {
 	}
 	//afficher lle plateau de jeux
 
+	void afficherIndex(int n) {
+		System.out.print("/ ");
+		for (int i = 0; i < n - 1; i++) {
+			System.out.print(i + ",");
+		}
+		System.out.print(n - 1 + "\n");
+	}
+
 		protected void afficherMatrice(int n)
 		{
 			System.out.println("Bienvenue sur le jeu Othello\n");
 			System.out.println("****************************\n");
 
-			System.out.print("/ ");
-			for (int i = 0; i < n - 1; i++) {
-				System.out.print(i + ",");
-			}
-			System.out.print(n - 1 + "\n");
+			afficherIndex(n);
 
 			for(int i=0;i<n;i++)
 			{
@@ -80,5 +84,21 @@ public class Grille {
 			}
 
 		}
+
+	void afficherMatriceRechercheCoup(Case[][] tab, int n) {
+		afficherIndex(n);
+
+		for(int i=0;i<n;i++)
+		{
+			System.out.print(i);
+			for(int j=0;j<n;j++)
+			{
+				System.out.print("|");
+				System.out.print(tab[i][j].valeur_Case);
+			}
+			System.out.print("|");
+			System.out.print("\n");
+		}
+	}
 		
 }

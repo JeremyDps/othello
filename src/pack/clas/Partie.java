@@ -20,8 +20,14 @@ public class Partie {
 		System.out.println(g.getClass().getName());
 	
 		Case [][] grilleRechercheCoup = g.grille;
-		boolean coupPossible = jeu.checkCoupValide(grilleRechercheCoup, j1.numero, n);
+		String[] coupPossible = jeu.checkCoupValide(grilleRechercheCoup, j1.numero, n);
 
+		//si le joueur a au moins 1 coup possible
+		if(coupPossible[0] == "true") {
+			System.out.println("il y a " + coupPossible[1] + " coups possible");
+		}
+
+		g.afficherMatriceRechercheCoup(grilleRechercheCoup, n);
 	}
 
 }
