@@ -1,5 +1,9 @@
 package pack.clas;
 
+import java.util.Scanner;
+import static java.lang.Integer.parseInt;
+
+
 public class Partie {
 	
 	
@@ -25,9 +29,19 @@ public class Partie {
 		//si le joueur a au moins 1 coup possible
 		if(coupPossible[0] == "true") {
 			System.out.println("il y a " + coupPossible[1] + " coups possible");
+			g.afficherMatriceRechercheCoup(grilleRechercheCoup, n);
+
+			String[] coordonneesCoup = jeu.selectCoordonnees();
+
+			boolean checkCoordonnees = jeu.checkCoordonnees(grilleRechercheCoup, parseInt(coordonneesCoup[0]), parseInt(coordonneesCoup[1]));
+			if(checkCoordonnees) {
+				System.out.println("coup ok");
+			} else {
+				System.out.println("coup pas possible");
+			}
 		}
 
-		g.afficherMatriceRechercheCoup(grilleRechercheCoup, n);
+
 	}
 
 }

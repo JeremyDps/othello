@@ -1,5 +1,7 @@
 package pack.clas;
 
+import java.util.Scanner;
+
 import static java.lang.Integer.parseInt;
 
 public class Jeu {
@@ -210,6 +212,30 @@ public class Jeu {
             }
         }
         return res;
+    }
+
+    //selectionner les x et y pour le prochain coup
+    public String[] selectCoordonnees() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Entrée la coordonnée x de votre prochain coup : ");
+        String x = sc.next();
+        System.out.println("Entrez la coordonnée y du prochain coup");
+        String y = sc.next();
+
+        return new String[]{x, y};
+    }
+
+    // vérifie si notre coup est valide : si il y a un $ à l'emplacement
+    public boolean checkCoordonnees(Case[][] tab, int x, int y) {
+        if(x < 0 | x > 7 | y < 0 | y > 7) {
+            return false;
+        }
+
+        if(tab[x][y].valeur_Case == "$") {
+            return true;
+        }
+
+        return false;
     }
 }
 
