@@ -35,13 +35,11 @@ public class Partie {
 
 			boolean checkCoordonnees = jeu.checkCoordonnees(grilleRechercheCoup, parseInt(coordonneesCoup[0]), parseInt(coordonneesCoup[1]));
 			if(checkCoordonnees) {
-				System.out.println("coup ok");
+				jeu.changerNumeros(g.grille, parseInt(coordonneesCoup[0]), parseInt(coordonneesCoup[1]), j1.numero);
+				g.afficherMatrice(n);
 			} else {
 				System.out.println("coup pas possible");
 			}
 		}
-
-
 	}
-
 }

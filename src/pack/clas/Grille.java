@@ -77,6 +77,9 @@ public class Grille {
 				for(int j=0;j<n;j++)
 				{
 					System.out.print("|");
+					if(grille[i][j].valeur_Case == "$") {
+						grille[i][j].valeur_Case = "_";
+					}
 					System.out.print(grille[i][j].valeur_Case);
 				}
 				System.out.print("|");
