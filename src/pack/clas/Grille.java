@@ -57,9 +57,9 @@ public class Grille {
 	//afficher lle plateau de jeux
 
 	void afficherIndex(int n) {
-		System.out.print("/ ");
+		System.out.print("/   ");
 		for (int i = 0; i < n - 1; i++) {
-			System.out.print(i + ",");
+			System.out.print(i + " , ");
 		}
 		System.out.print(n - 1 + "\n");
 	}
@@ -76,13 +76,13 @@ public class Grille {
 				System.out.print(i);
 				for(int j=0;j<n;j++)
 				{
-					System.out.print("|");
+					System.out.print(" | ");
 					if(grille[i][j].valeur_Case == "$") {
 						grille[i][j].valeur_Case = "_";
 					}
 					System.out.print(grille[i][j].valeur_Case);
 				}
-				System.out.print("|");
+				System.out.print(" | ");
 				System.out.print("\n");
 			}
 
@@ -96,10 +96,10 @@ public class Grille {
 			System.out.print(i);
 			for(int j=0;j<n;j++)
 			{
-				System.out.print("|");
+				System.out.print(" | ");
 				System.out.print(tab[i][j].valeur_Case);
 			}
-			System.out.print("|");
+			System.out.print(" |");
 			System.out.print("\n");
 		}
 	}

@@ -86,7 +86,7 @@ public class Jeu {
                         int tempy = y - 2;
                         for (int i = 0; i < numtimes; i++) {
                             if(tab[tempx][tempy].valeur_Case.equals(numeroJoueur)) {
-                                nordOuest = false;
+                                nordOuest = true;
                                 break;
                             }else if(tab[tempx][tempy].valeur_Case.equals("_") | tab[tempx][tempy].valeur_Case.equals("=")) {
                                 break;
@@ -245,8 +245,10 @@ public class Jeu {
         tab[x][y].valeur_Case = numJoueur;
 
         //diagonale nord est
+        System.out.println("Je suis arrivé à nord est");
         if(x != 1 && x != 0 && y != 6 && y != 7) {
             if(tab[x - 1][y + 1].valeur_Case.equals(numeroAdverse)) {
+                System.out.println("changement numero nord est");
                 int numtimes = 0;
                 if(x + y <= 7) {
                     numtimes = x - 1;
@@ -263,7 +265,7 @@ public class Jeu {
                         for(int j = 0; j <= i; j++) {
                             tab[tempx][tempy].valeur_Case = memeNumero;
                             tempx--;
-                            tempy--;
+                            tempy++;
                         }
                         break;
                     } else if(tab[tempx][tempy].valeur_Case.equals("_")) {
@@ -276,8 +278,10 @@ public class Jeu {
         }
 
         //diagonale sud ouest
+        System.out.println("Je suis arrivé à sud ouest");
         if(x != 6 && x != 7 && y != 0 && y != 1) {
             if(tab[x + 1][y - 1].valeur_Case.equals(numeroAdverse)) {
+                System.out.println("changement numero sud ouest");
                 int numtimes = 0;
                 if(x + y <= 7) {
                     numtimes = y - 1;
@@ -308,8 +312,10 @@ public class Jeu {
         }
 
         //diagonale nord ouest
+        System.out.println("Je suis arrivé à nord ouest");
         if(x != 0 && x != 1 && y != 1 && y != 0) {
             if(tab[x - 1][y - 1].valeur_Case.equals(numeroAdverse)) {
+                System.out.println("changement numero nord ouest");
                 int numtimes = 0;
                 if(x <= y) {
                     numtimes = x - 1;
@@ -332,95 +338,136 @@ public class Jeu {
                     } else if(tab[tempx][tempy].valeur_Case.equals("_")) {
                         break;
                     }
-                }
-            }
-
-            //diagonale sud est
-            if(x != 6 && x != 7 && y != 6 && y != 7) {
-                if(tab[x + 1][y + 1].valeur_Case.equals(numeroAdverse)) {
-                    int numtimes = 0;
-                    if(x <= y){
-                        numtimes = 6 - y;
-                    } else {
-                        numtimes = 6 - x;
-                    }
-                    int tempx = x + 2;
-                    int tempy = y + 2;
-
-                    for(int i = 0; i < numtimes; i++) {
-                        if(tab[tempx][tempy].valeur_Case.equals(memeNumero)){
-                            tempx++;
-                            tempy++;
-                            for(int j = 0; j <= i; j++){
-                                tab[tempx][tempy].valeur_Case = memeNumero;
-                                tempx++;
-                                tempy++;
-                            }
-                            break;
-                        } else if(tab[tempx][tempy].valeur_Case.equals("_")) {
-                            break;
-                        }
-                    }
-                }
-            }
-
-            //est
-            if(y != 6 && y != 7 && tab[x][y + 1].valeur_Case.equals(numeroAdverse)) {
-                for(int i = y + 2; i <= 7; i++) {
-                    if(tab[x][i].valeur_Case.equals(memeNumero)) {
-                        for(int j = y + 1; j <= i - 1; j++){
-                            tab[x][j].valeur_Case = memeNumero;
-                        }
-                        break;
-                    } else if (tab[x][i].valeur_Case.equals("_")) {
-                        break;
-                    }
-                }
-            }
-
-            //ouest
-            if(y != 0 && y != 1 && tab[x][y - 1].valeur_Case.equals(numeroAdverse)){
-                for(int i = y - 2; i >= 0; i--) {
-                    if(tab[x][i].valeur_Case.equals(memeNumero)) {
-                        for(int j = y - 1; j >= i + 1; j--) {
-                            tab[x][j].valeur_Case = memeNumero;
-                        }
-                        break;
-                    } else if (tab[x][i].valeur_Case.equals("_")) {
-                        break;
-                    }
-                }
-            }
-
-            //sud
-            if(x != 6 && x != 7 && tab[x + 1][y].valeur_Case.equals(numeroAdverse)) {
-                for(int i = x + 2; i <= 7; i++){
-                    if(tab[i][y].valeur_Case.equals(memeNumero)){
-                        for(int j = x + 1; j <= i - 1; j++){
-                            tab[j][y].valeur_Case=memeNumero;
-                        }
-                        break;
-                    }else if(tab[i][x].valeur_Case.equals("_")){
-                        break;
-                    }
-                }
-            }
-
-            //nord
-            if(x != 0 && x != 1 && tab[x-1][y].valeur_Case.equals(numeroAdverse)){
-                for(int i = x - 2; i >= 0; i--){
-                    if(tab[i][y].valeur_Case.equals(memeNumero)){
-                        for(int j = x - 1; j >= i + 1; j--){
-                            System.out.print("nord");
-                            tab[j][y].valeur_Case=memeNumero;
-                        }
-                        break;
-                    }else if(tab[i][y].valeur_Case.equals("_")){
-                        break;
-                    }
+                    tempx--;
+                    tempy--;
                 }
             }
         }
+
+        //diagonale sud est
+        System.out.println("Je suis arrivé à sud est");
+        if(x != 6 && x != 7 && y != 6 && y != 7) {
+            if(tab[x + 1][y + 1].valeur_Case.equals(numeroAdverse)) {
+                System.out.println("changement numero sud est");
+                int numtimes = 0;
+                if(x <= y){
+                    numtimes = 6 - y;
+                } else {
+                    numtimes = 6 - x;
+                }
+                int tempx = x + 2;
+                int tempy = y + 2;
+
+                for(int i = 0; i < numtimes; i++) {
+                    if(tab[tempx][tempy].valeur_Case.equals(memeNumero)){
+                        tempx = x + 1;
+                        tempy = y + 1;
+                        for(int j = 0; j <= i; j++){
+                            tab[tempx][tempy].valeur_Case = memeNumero;
+                            tempx++;
+                            tempy++;
+                        }
+                        break;
+                    } else if(tab[tempx][tempy].valeur_Case.equals("_")) {
+                        break;
+                    }
+                    tempx++;
+                    tempy++;
+                }
+            }
+        }
+
+        //est
+        System.out.println("Je suis arrivé a l'est");
+        if(y != 6 && y != 7 && tab[x][y + 1].valeur_Case.equals(numeroAdverse)) {
+            System.out.println("changement numero est");
+            for(int i = y + 2; i <= 7; i++) {
+                if(tab[x][i].valeur_Case.equals(memeNumero)) {
+                    for(int j = y + 1; j <= i - 1; j++){
+                        tab[x][j].valeur_Case = memeNumero;
+                    }
+                    break;
+                } else if (tab[x][i].valeur_Case.equals("_")) {
+                    break;
+                }
+            }
+        }
+
+        //ouest
+        System.out.println("Je suis arrivé à l'ouest");
+        if(y != 0 && y != 1 && tab[x][y - 1].valeur_Case.equals(numeroAdverse)){
+            System.out.println("changement numero ouest");
+            for(int i = y - 2; i >= 0; i--) {
+                if(tab[x][i].valeur_Case.equals(memeNumero)) {
+                    for(int j = y - 1; j >= i + 1; j--) {
+                        tab[x][j].valeur_Case = memeNumero;
+                    }
+                    break;
+                } else if (tab[x][i].valeur_Case.equals("_")) {
+                    break;
+                }
+            }
+        }
+
+        //sud
+        System.out.println("Je suis arrivé au sud");
+        if(x != 6 && x != 7 && tab[x + 1][y].valeur_Case.equals(numeroAdverse)) {
+            System.out.println("changement numero sud");
+            for(int i = x + 2; i <= 7; i++){
+                if(tab[i][y].valeur_Case.equals(memeNumero)){
+                    for(int j = x + 1; j <= i - 1; j++){
+                        tab[j][y].valeur_Case=memeNumero;
+                    }
+                    break;
+                }else if(tab[i][x].valeur_Case.equals("_")){
+                    break;
+                }
+            }
+        }
+
+        //nord
+        System.out.println("Je suis arrivé au nord");
+        if(x != 0 && x != 1 && tab[x-1][y].valeur_Case.equals(numeroAdverse)){
+            System.out.println("changement numero nord");
+            for(int i = x - 2; i >= 0; i--){
+                if(tab[i][y].valeur_Case.equals(memeNumero)){
+                    for(int j = x - 1; j >= i + 1; j--){
+                        System.out.print("nord");
+                        tab[j][y].valeur_Case=memeNumero;
+                    }
+                    break;
+                }else if(tab[i][y].valeur_Case.equals("_")){
+                    break;
+                }
+            }
+        }
+    }
+
+    //après chaque coup, il y a calcul des résultats
+    //valeur de retour: tableau d'entier à deux index
+    //le 1er affiche le résulat du joueur qui joue
+
+    public int[] calculDesScores(Case[][] tab, int numjoueur, int n) {
+        int scoreJoueur = 0, scoreAdversaire = 0;
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                if(tab[i][j].valeur_Case.equals(String.valueOf(numjoueur))) {
+                    scoreJoueur++;
+                } else if(tab[i][j].valeur_Case.equals(3 - numjoueur + "")) {
+                    scoreAdversaire++;
+                }
+            }
+        }
+
+        return new int[]{scoreJoueur, scoreAdversaire};
+    }
+
+    public void definirVainqueur(Case[][] tab, int numJoueur, int n) {
+        System.out.println("Fin du jeu");
+        int[] scores = calculDesScores(tab, numJoueur, n);
+
+        System.out.println("résultats finaux : joueur " + numJoueur + " a " + scores[0] + " points et joueur " + (3 - numJoueur) + "a" + scores[1] + "points");
     }
 }
 
